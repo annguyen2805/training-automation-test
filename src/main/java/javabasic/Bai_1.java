@@ -13,5 +13,6 @@ public class Bai_1 {
         } else {
             System.out.println("so " +number+ " la so nguyen am");
         }
+        a.close();
     }
 }
