@@ -9,6 +9,7 @@ public class Topic_1_JavaBasic {
         for (int i = 0; i< soNguyen.length; i++){
             System.out.println(soNguyen[i]);
         }
+        System.out.println("Test commit");
 
     }
 }
