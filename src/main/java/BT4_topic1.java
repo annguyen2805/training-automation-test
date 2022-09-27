@@ -4,7 +4,7 @@ public class BT4_topic1 {
     //Viết chưng trình nhập vào n phần tử, sau đó nhập vào n số nguyên dương, tìm phần tử lớn nhất
     public static void main(String[] args) {
     int  n;
-    int max =0;
+    int max =0
     int[] songuyen;
         System.out.println("Nhập vào độ dài mảng: ");
         Scanner input = new Scanner(System.in);
