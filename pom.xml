@@ -19,6 +19,11 @@
             <artifactId>selenium-java</artifactId>
             <version>4.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>training-automation-test</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
