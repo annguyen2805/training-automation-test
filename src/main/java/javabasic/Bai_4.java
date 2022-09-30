@@ -10,12 +10,12 @@ public class Bai_4 {
         int n = number.nextInt();
         int[] soNguyen = new int[n];
         System.out.println("nhap vao day so nguyen");
-        for (int i=0;i< n;i++)
+        for (int i = 0; i < n; i++)
             soNguyen[i] = number.nextInt();
-        for (int i = 0; i < n;i++) {
-            if (soNguyen[i] >max)
-                max=soNguyen[i];
+        for (int i = 0; i < n; i++) {
+            if (soNguyen[i] > max)
+                max = soNguyen[i];
         }
-        System.out.println("so lon nhat la: " +max);
+        System.out.println("so lon nhat la: " + max);
     }
 }

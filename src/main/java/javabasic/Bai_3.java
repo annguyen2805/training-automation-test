@@ -10,7 +10,7 @@ public class Bai_3 {
         int n = number.nextInt();
         for (int i = 0; i <= n; i++)
             if (i % 2 == 0)
-                sum +=i;
-                System.out.println("tong cac so chan la: " + sum);
+                sum += i;
+        System.out.println("tong cac so chan la: " + sum);
     }
 }

@@ -9,9 +9,9 @@ public class Bai_1 {
         Scanner a = new Scanner(System.in);
         int number = a.nextInt();
         if (number > 0) {
-            System.out.println("so " +number+"  la so nguyen duong");
+            System.out.println("so " + number + "  la so nguyen duong");
         } else {
-            System.out.println("so " +number+ " la so nguyen am");
+            System.out.println("so " + number + " la so nguyen am");
         }
         a.close();
     }
