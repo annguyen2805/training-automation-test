@@ -3,8 +3,7 @@ package javabasic;
 import java.util.Scanner;
 
 public class Bai_5_Topic1 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String chuoi;
         Scanner sc = new Scanner(System.in);
 
