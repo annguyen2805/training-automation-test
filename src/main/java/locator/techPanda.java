@@ -24,8 +24,8 @@ public class techPanda {
     }
 
     @Test
-//   Login with emty email password
-    public void tc_04() {
+//   TC_04
+    public void login_With_Empty_Email_Password() {
 
         WebElement clickLogin = driver.findElement(By.xpath("//button[@title='Login']"));
         clickLogin.click();
@@ -34,8 +34,8 @@ public class techPanda {
     }
 
     @Test
-    //  Login with incorect email password
-    public void tc_05() {
+    //  TC_05
+    public void login_With_Incorrect_Email_Password() {
         driver.findElement(By.id("email")).sendKeys("trainningautomation@hotmail.com");
         driver.findElement(By.id("pass")).sendKeys("123123123");
         WebElement clickLogin = driver.findElement(By.xpath("//button[@title='Login']"));

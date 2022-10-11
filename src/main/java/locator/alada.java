@@ -14,7 +14,7 @@ public class alada {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUp() {
+    public void SetUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -22,8 +22,8 @@ public class alada {
     }
 
     @Test
-//    Register with empty data
-    public void tc_01() {
+//    TC_01
+    public void register_With_Empty_Data() {
         WebElement findRegisterButton = driver.findElement(By.xpath("//button[@type='submit']"));
         findRegisterButton.click();
 //        Assert.assertEquals(driver.findElement(By.id("txtFirstname-error")).getText(), "Vui lòng nhập họ tên");
@@ -42,8 +42,8 @@ public class alada {
     }
 
     @Test
-    //    Register with Invalid Email
-    public void tc_02() {
+    //    TC_02
+    public void register_With_Invalid_Email() {
         driver.findElement(By.id("txtFirstname")).sendKeys("THủy Chiều");
         driver.findElement(By.id("txtEmail")).sendKeys("abc");
         driver.findElement(By.id("txtCEmail")).sendKeys("abc");
@@ -60,8 +60,8 @@ public class alada {
     }
 
     @Test
-    //    Register with incorrect confirm Email
-    public void td_03() {
+    //    TC_03
+    public void register_With_Incorrect_Confirm_Email() {
         driver.findElement(By.id("txtFirstname")).sendKeys("chieu");
         driver.findElement(By.id("txtEmail")).sendKeys("abc@gmail.com");
         driver.findElement(By.id("txtCEmail")).sendKeys("sds");
@@ -75,7 +75,7 @@ public class alada {
     }
 
     @AfterClass
-    public void teardown() {
+    public void tearDown() {
 
 //        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
         driver.quit();
