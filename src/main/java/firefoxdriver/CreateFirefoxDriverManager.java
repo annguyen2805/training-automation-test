@@ -13,7 +13,7 @@ public class CreateFirefoxDriverManager {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("https://google.com");
-        String title = new driver.getTitle();
-        System.out.println("Title" + title);
+//        String title = new driver.getTitle();
+//        System.out.println("Title" + title);
     }
 }
