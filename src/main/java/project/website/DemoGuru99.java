@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class DemoGuru99 {
     WebDriver driver;
-    String userId, password, loginPageUrl;
+    String userId, password;
     String name,dateOfBirth,address, city, state, pin, phone, email, gender;
     String customoerId = "";
 
@@ -44,8 +44,6 @@ public class DemoGuru99 {
         email="naruto" +randomNumber() + "@gmail.com";
         gender = "male";
 
-        driver.get("https://www.demo.guru99.com/v4");
-        loginPageUrl = driver.getCurrentUrl();
     }
 
     private int randomNumber() {
@@ -55,6 +53,7 @@ public class DemoGuru99 {
 
     @Test
     public void tc01_Register() {
+        driver.get("https://www.demo.guru99.com/v4");
         driver.findElement(By.xpath("//a[text()='here']")).click();
         driver.findElement(By.xpath("//input[@name='emailid']"))
                 .sendKeys(email);
@@ -68,8 +67,7 @@ public class DemoGuru99 {
     }
     @Test
     public void tc02_Login() {
-        driver.get(loginPageUrl);
-
+        driver.get("https://www.demo.guru99.com/v4");
         driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(userId);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
         driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
