@@ -21,7 +21,7 @@ public class TestAlada {
     }
 
     @Test
-    public void TC01_Register_with_empty_data(){
+    public void tc01_register_with_empty_data(){
        WebElement Submit = driver.findElement(By.xpath("//button[@type='submit']"));
        Submit.click();
 
@@ -40,7 +40,7 @@ public class TestAlada {
     }
 
     @Test
-    public void TC02_Register_with_Invalid_Email(){
+    public void tc02_register_with_invalid_email(){
 
         driver.findElement(By.id("txtFirstname")).sendKeys("Bui Huong");
         driver.findElement(By.id("txtEmail")).sendKeys("huong");
@@ -58,7 +58,7 @@ public class TestAlada {
 
     }
     @Test
-    public void TC03_Register_with_incorrect_confirm_Email(){
+    public void tc03_register_with_incorrect_confirm_email(){
         driver.findElement(By.id("txtFirstname")).sendKeys("Bui Huong");
         driver.findElement(By.id("txtEmail")).sendKeys("huong");
         driver.findElement(By.id("txtCEmail")).sendKeys("huong000");

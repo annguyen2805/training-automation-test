@@ -22,7 +22,7 @@ public class TestMagento {
     }
 
     @Test
-    public void TC01_Login_with_emty_email_password(){
+    public void tc01_login_with_emty_email_password(){
         WebElement Myaccount = driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']"));
         Myaccount.click();
 
@@ -34,7 +34,7 @@ public class TestMagento {
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText(),"This is a required field.");
     }
     @Test
-    public void TC02_Login_with_incorect_email_password(){
+    public void tc02_login_with_incorect_email_password(){
         WebElement Myaccount = driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']"));
         Myaccount.click();
 
