@@ -31,8 +31,9 @@ public class DemoGuru99 {
 
     @BeforeTest
     public void BeforeTest() {
-        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
-        driver = new FirefoxDriver();
+//        System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
 
         name="Thu";
         dateOfBirth="1996-11-27";
@@ -42,7 +43,11 @@ public class DemoGuru99 {
         pin="123456";
         phone="0987654321";
         email="naruto" +randomNumber() + "@gmail.com";
+//        email = "mothu123@gmail.com";
         gender = "male";
+
+        userId = "mngr447933";
+        password = "rypahEq";
 
     }
 
@@ -51,9 +56,11 @@ public class DemoGuru99 {
         return ran.nextInt(999);
     }
 
-    @Test
+//    @Test
     public void tc01_Register() {
         driver.get("https://www.demo.guru99.com/v4");
+        driver.manage().window().maximize();
+
         driver.findElement(By.xpath("//a[text()='here']")).click();
         driver.findElement(By.xpath("//input[@name='emailid']"))
                 .sendKeys(email);
@@ -68,6 +75,7 @@ public class DemoGuru99 {
     @Test
     public void tc02_Login() {
         driver.get("https://www.demo.guru99.com/v4");
+        driver.manage().window().maximize();
         driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(userId);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
         driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
@@ -96,9 +104,12 @@ public class DemoGuru99 {
         driver.findElement(passwordTextbox).sendKeys(password);
 
         //Click Submit
-        driver.findElement(By.name("sub"));
+        driver.findElement(By.xpath("//input[@name='sub']")).click();
 
         //Lấy text thông báo thành công
+//        driver.findElement(By.xpath("//p[@class='heading3']"));
+        Assert.assertEquals(driver.findElement(By.xpath("//p[@class='heading3']")).getText(),
+                "Customer Registered Successfully!!!");
 
         //So sánh dữ liệu
         Assert.assertEquals(driver.findElement(By.xpath("//td[text()='Customer Name']/following-sibling::td]")).getText(),name);
