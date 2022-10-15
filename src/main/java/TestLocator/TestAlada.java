@@ -22,8 +22,8 @@ public class TestAlada {
 
     @Test
     public void tc01_register_with_empty_data(){
-       WebElement Submit = driver.findElement(By.xpath("//button[@type='submit']"));
-       Submit.click();
+       WebElement submit = driver.findElement(By.xpath("//button[@type='submit']"));
+       submit.click();
 
        Assert.assertEquals(driver.findElement(By.xpath("//label[@id='txtFirstname-error']")).getText(),"Vui lòng nhập họ tên");
 
@@ -49,8 +49,8 @@ public class TestAlada {
         driver.findElement(By.id("txtCPassword")).sendKeys("123456");
         driver.findElement(By.id("txtPhone")).sendKeys("0358922221");
 
-        WebElement Submit = driver.findElement(By.xpath("//button[@type='submit']"));
-        Submit.click();
+        WebElement submit = driver.findElement(By.xpath("//button[@type='submit']"));
+        submit.click();
 
         Assert.assertEquals(driver.findElement(By.xpath("//label[@id='txtEmail-error']")).getText(),"Vui lòng nhập email hợp lệ");
 
@@ -66,8 +66,8 @@ public class TestAlada {
         driver.findElement(By.id("txtCPassword")).sendKeys("123456");
         driver.findElement(By.id("txtPhone")).sendKeys("0358922221");
 
-        WebElement Submit = driver.findElement(By.xpath("//button[@type='submit']"));
-        Submit.click();
+        WebElement submit = driver.findElement(By.xpath("//button[@type='submit']"));
+        submit.click();
 
         Assert.assertEquals(driver.findElement(By.xpath("//label[@id='txtCEmail-error']")).getText(),"Email nhập lại không đúng");
 

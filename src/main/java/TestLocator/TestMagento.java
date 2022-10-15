@@ -26,8 +26,8 @@ public class TestMagento {
         WebElement Myaccount = driver.findElement(By.xpath("//div[@class='footer-container']//a[@title='My Account']"));
         Myaccount.click();
 
-        WebElement Login = driver.findElement(By.xpath("//button[@id='send2']"));
-        Login.click();
+        WebElement login = driver.findElement(By.xpath("//button[@id='send2']"));
+        login.click();
 
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='advice-required-entry-email']")).getText(),"This is a required field.");
 
@@ -41,8 +41,8 @@ public class TestMagento {
         driver.findElement(By.id("email")).sendKeys("trainningautomation@hotmail.com");
         driver.findElement(By.id("pass")).sendKeys("123123123");
 
-        WebElement Login = driver.findElement(By.xpath("//button[@id='send2']"));
-        Login.click();
+        WebElement login = driver.findElement(By.xpath("//button[@id='send2']"));
+        login.click();
 
         Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),'Invalid login or password.')]")).getText(),"Invalid login or password.");
     }
