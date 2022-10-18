@@ -33,9 +33,9 @@ public class BaitapLocator6 {
         driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys("lanpth2@gmail.com");
         driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
         WebElement user = driver.findElement(By.xpath("//table[@align='center']//tr[4]//td[2]"));
-        var userText =  user.getText();
+        String userText =  user.getText();
         WebElement pass = driver.findElement(By.xpath("//table[@align='center']//tr[5]//td[2]"));
-        var passText = pass.getText();
+        String passText = pass.getText();
         driver.get("https://demo.guru99.com/v4/");
         driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(userText);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(passText);
@@ -66,6 +66,15 @@ public class BaitapLocator6 {
        Assert.assertEquals(driver.findElement(By.xpath("//table[@name='customer']//tr[11]//td[2]")).getText(),"123456");
        Assert.assertEquals(driver.findElement(By.xpath("//table[@name='customer']//tr[12]//td[2]")).getText(),"0387338338");
        Assert.assertEquals(driver.findElement(By.xpath("//table[@name='customer']//tr[13]//td[2]")).getText(),emailRd);
+    }
+    @Test
+    public  void tc3_edit(){
+        WebElement customerId = driver.findElement(By.xpath("//table[@align='center']//tr[5]//td[2]"));
+        String customerIdText = customerId.getText();
+        driver.findElement(By.xpath("//ul[@class='menusubnav']//li[3]")).click();
+        driver.findElement(By.xpath("//input[@name='cusid']")).sendKeys(customerIdText);
+        driver.findElement(By.xpath("//input[@name='AccSubmit']")).click();
+
     }
 
 }
