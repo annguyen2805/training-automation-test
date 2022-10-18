@@ -31,7 +31,7 @@ public class HandleWebElement {
     }
 
     @Test
-    public void NopCommerce() {
+    public void TC06_NopCommerce() {
         driver.findElement(By.className("ico-register")).click();
         driver.findElement(By.id("gender-male")).click();
         driver.findElement(By.id("FirstName")).sendKeys("Chieu");
