@@ -20,7 +20,8 @@ public class TestGuru99 {
     {
         Random randomNumber = new Random();
         return randomNumber.nextInt(999);
-    }    @BeforeMethod
+    }
+    @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -29,18 +30,20 @@ public class TestGuru99 {
         email = "buihuong"+randomNumber()+"@gmail.com";
     }
     @Test
-    public void dang_ki_account(){
+    public void tc01_dang_ki_account(){
 
         WebElement visit_here = driver.findElement(By.xpath("//a[contains(text(),'here')]"));
         visit_here.click();
-        driver.findElement(By.xpath("//input[@name='emailid']/following-sibling::label")).sendKeys(email);
+        driver.findElement(By.xpath("//input[@name='emailid']")).sendKeys(email);
         WebElement submit_email = driver.findElement(By.xpath("//input[@name='btnLogin']"));
-        userId = String.valueOf(driver.findElement(By.xpath("//td[contains(text(),'User ID')]/following-sibling::td")));
-        password = String.valueOf(driver.findElement(By.xpath("//td[contains(text(),'Password :')]/following-sibling::td")));
+        WebElement userId = (driver.findElement(By.xpath("//input[@name='uid']")));
+        var user = userId.getText();
+        WebElement password = (driver.findElement(By.xpath("//input[@name='password']")));
+        var pass = password.getText();
 
     }
     @Test
-    public void dang_nhap(){
+    public void tc02_dang_nhap(){
         driver.get("https://demo.guru99.com/v4/");
         driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(userId);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
@@ -48,7 +51,7 @@ public class TestGuru99 {
         Assert.assertEquals(driver.findElement(By.xpath("//marquee[contains(text(),'Welcome')]")).getText(),"Welcome To Manager's Page of Guru99 Bank");
     }
     @Test
-    public void new_customer(){
+    public void tc03_new_customer(){
         driver.findElement(By.xpath("//a[contains(text(),'New Customer')]")).click();
         driver.findElement(By.xpath("//p[contains(text(),'Add New Customer')]")).isDisplayed();
         driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Buihuong");
@@ -67,7 +70,7 @@ public class TestGuru99 {
 
     }
     @Test
-    public void edit(){
+    public void tc04_edit(){
         driver.findElement(By.xpath("//a[contains(text(),'Edit Customer')]")).click();
         driver.findElement(By.xpath("//input[@name='cusid']")).sendKeys(customerId);
         driver.findElement(By.xpath("//input[@name='AccSubmit']")).click();
@@ -77,7 +80,7 @@ public class TestGuru99 {
         //web tb message no changes trong khi đã edit thành công ???
     }
     @Test
-    public void delete(){
+    public void tc05_delete(){
         driver.findElement(By.xpath("//a[contains(text(),'Delete Account')]")).click();
         driver.findElement(By.xpath("//input[@name='accountno']")).sendKeys(customerId);
         driver.findElement(By.xpath("//input[@name='AccSubmit']")).click();
