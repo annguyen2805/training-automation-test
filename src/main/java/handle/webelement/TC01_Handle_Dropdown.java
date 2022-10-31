@@ -10,7 +10,7 @@ import org.testng.annotations.*;
 
 import java.util.Random;
 
-public class Dropdown {
+public class TC01_Handle_Dropdown {
     WebDriver driver;
 
     @Test
