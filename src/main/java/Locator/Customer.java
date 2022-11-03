@@ -2,7 +2,7 @@ package Locator;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.Random;
 
 public class Customer {
     private String cusName;
@@ -16,6 +16,9 @@ public class Customer {
     private String cusEmail;
     private String cusPassword;
     private String dateOfBirth;
+    private String subject;
+    private String picture;
+    private String hobbies;
 
     public String getCusLastName() {
         return cusLastName;
@@ -26,20 +29,37 @@ public class Customer {
     }
 
     public Customer() {
-        this.cusEmail="";
-        this.address="";
-        this.city="";
-        this.cusPassword="";
-        this.cusName="";
-        this.cusLastName="";
-        this.state="";
-        this.pin="";
-        this.mobileNumber="";
-        this.gender="";
-        this.dateOfBirth= "";
+        this.subject = "";
+        this.cusEmail = "";
+        this.address = "";
+        this.city = "";
+        this.cusPassword = "";
+        this.cusName = "";
+        this.cusLastName = "";
+        this.state = "";
+        this.pin = "";
+        this.mobileNumber = "";
+        this.gender = "";
+        this.dateOfBirth = "";
     }
 
-    public Customer(String cusName,String cusLastName, String gender, String address, String city, String state, String pin, String mobileNumber, String cusEmail, String cusPassword, String dateOfBirth) {
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public Customer(String cusName, String cusLastName, String gender, String address, String city, String state, String pin, String mobileNumber, String cusEmail, String cusPassword, String dateOfBirth, String subject, String picture, String hobbies) {
         this.cusName = cusName;
         this.gender = gender;
         this.address = address;
@@ -49,22 +69,54 @@ public class Customer {
         this.mobileNumber = mobileNumber;
         this.cusEmail = cusEmail;
         this.cusPassword = cusPassword;
-        this.dateOfBirth=dateOfBirth;
-        this.cusLastName=cusLastName;
+        this.dateOfBirth = dateOfBirth;
+        this.cusLastName = cusLastName;
+        this.subject = subject;
+        this.picture = picture;
+        this.hobbies = hobbies;
     }
 
     public String getDateOfBirth() {
         return dateOfBirth;
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-    public String getYearOfBirth()
-    {
-        String year=this.dateOfBirth.substring(7,10);
+
+    public String getYearOfBirth() {
+        String year = this.dateOfBirth.substring(6, 10);
         return year;
     }
+
+    public String getMonthOfBirth() {
+        String month = this.dateOfBirth.substring(3, 5);
+        return month;
+    }
+
+    public String getDayOfBirth() {
+        String day = this.dateOfBirth.substring(0, 2);
+        return day;
+    }
+
+    public String getDateOfBirthFormat(String format) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
+        Integer year = Integer.parseInt(this.dateOfBirth.substring(6, 10));
+        Integer month = Integer.parseInt(this.dateOfBirth.substring(3, 5));
+        Integer day = Integer.parseInt(this.dateOfBirth.substring(0, 2));
+        LocalDateTime myDateObj = LocalDateTime.of(year, month, day, 0, 0, 0);
+        String cusDateOfBirth = myDateObj.format(dtf);
+        return cusDateOfBirth;
+    }
+
     public String getCusName() {
         return cusName;
     }
@@ -154,6 +206,7 @@ public class Customer {
         }
         return sb.toString();
     }
+
     public static Customer Random_Info_Customer() {
         String listCharacter = "zxcvbnmlkjhgfdsaqwertyuiop";
         String listNumber = "123456789";
@@ -168,21 +221,24 @@ public class Customer {
         String mobileNumber = "0" + Random_String(9, listNumber);
         String cusemail = Random_String(9, listCharacter) + "@gmail.com";
         String cuspassword = Random_String(3, listCharacter) + Random_String(3, listNumber);
-        System.out.println(cusName + "," + gender + "," + address + "," + city + "," + state + "," + pin + "," + mobileNumber + "," + cusemail + "," + cuspassword);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        Integer yearMin = 1980;
+        Integer yearMin = 1950;
         Integer yearMax = 2010;
         Integer monthMin = 1;
         Integer monthMax = 12;
         Integer dayMin = 1;
         Integer dayMax = 12;
         //random year
-        Integer year = (int) (Math.random() * (yearMax - yearMin + 1) + yearMin);
-        Integer month = (int) (Math.random() * (monthMax - monthMin + 1) + monthMin);
-        Integer day = (int) (Math.random() * (dayMax - dayMin + 1) + dayMin);
+        Random random = new Random();
+        Integer year = random.nextInt(yearMax - yearMin + 1) + yearMin;
+        System.out.println("year = " + year);
+        Integer month = random.nextInt(monthMax - monthMin + 1) + monthMin;
+        Integer day = random.nextInt(dayMax - dayMin + 1) + dayMin;
         LocalDateTime myDateObj = LocalDateTime.of(year, month, day, 0, 0, 0);
         String cusDateOfBirth = myDateObj.format(dtf);
-        Customer cus = new Customer(cusName,cusLastName, gender, address, city, state, pin, mobileNumber, cusemail, cuspassword, cusDateOfBirth);
+        Customer cus = new Customer(cusName, cusLastName, gender, address, city, state, pin, mobileNumber, cusemail, cuspassword, cusDateOfBirth, "", "", "");
+        System.out.println(cusName + "," + gender + "," + address + "," + city + "," + state + "," + pin + "," + mobileNumber + "," + cusemail + "," + cuspassword + "," + cusDateOfBirth);
         return cus;
     }
+
 }

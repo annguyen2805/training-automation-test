@@ -11,12 +11,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 public class DemoLocator extends Customer {
     WebDriver driver;
+
+    public DemoLocator() {
+        super();
+    }
 
     @BeforeMethod
     public void setup() {
