@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import java.sql.Driver;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class TC04_Add_Info_To_form {
     private int Random() {
@@ -32,7 +33,7 @@ public class TC04_Add_Info_To_form {
     }
 
     @Test
-    public void Add_Info_To_Form() throws InterruptedException {
+    public void Add_Info_To_Form()  {
         driver.findElement(By.id("firstName")).sendKeys("chieu");
         driver.findElement(By.id("lastName")).sendKeys("do");
         driver.findElement(By.id("userEmail")).sendKeys("chieu" + Random() + "@gmail.com");
@@ -47,7 +48,8 @@ public class TC04_Add_Info_To_form {
         selectYear.selectByValue("1993");
         driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__day') and text() = 15]")).click();
         driver.findElement(By.id("subjectsInput")).sendKeys("M");
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement(By.id("subjectsInput")).sendKeys(Keys.ENTER);
         driver.findElement(By.xpath("//label[@for='hobbies-checkbox-1']")).click();
         WebElement uploadFile = driver.findElement(By.id("uploadPicture"));

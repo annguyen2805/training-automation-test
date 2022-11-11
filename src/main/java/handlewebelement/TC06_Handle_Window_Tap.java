@@ -10,12 +10,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class TC06_Handle_Window_Tap {
     WebDriver driver;
 
     @Test
-    public void Handle_Window_Tap() throws InterruptedException {
+    public void Handle_Window_Tap() {
         driver.findElement(By.className("cdo-login-button")).click();
         Set<String> setID = driver.getWindowHandles();
         for (String id : setID) {
@@ -23,7 +24,8 @@ public class TC06_Handle_Window_Tap {
                 break;
             driver.switchTo().window(id);
         }
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//input[@value='Log in']")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='login_content']//span[@data-bound-to='loginID']")).getText(), "This field is required");
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='login_content']//span[@data-bound-to='password']")).getText(), "This field is required");
